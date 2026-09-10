@@ -1,0 +1,42 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cron",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-08",
+  "workers_dev": false,
+  "preview_urls": false,
+  "triggers": {
+    "crons": [],
+  },
+  "observability": {
+    "traces": {
+      "enabled": true,
+      "destinations": ["grafana-traces"],
+      "head_sampling_rate": 1,
+      "persist": true,
+    },
+    "logs": {
+      "enabled": true,
+      "destinations": ["grafana-logs"],
+      "head_sampling_rate": 1,
+      "persist": true,
+    },
+  },
+  "placement": {
+    "mode": "smart",
+  },
+  "r2_buckets": [
+    {
+      "binding": "WEATHER_BUCKET",
+      "bucket_name": "object",
+    },
+  ],
+  "secrets_store_secrets": [
+    {
+      "binding": "OPENWEATHERMAP_API_KEY",
+      "store_id": "c5b03c1fc22547d0bb1ee70629d4b6dd",
+      "secret_name": "OPENWEATHERMAP_API_KEY",
+    },
+  ],
+  "d1_databases": [],
+}
