@@ -6,7 +6,7 @@ export type CronJob = (
 ) => Promise<void>;
 
 export const cronJobs: Record<string, CronJob[]> = {
-  "*/10 * * * *": [syncWeather],
+  "8/10 * * * *": [syncWeather],
 };
 
 export async function runScheduled(
@@ -17,7 +17,9 @@ export async function runScheduled(
   const jobs = cronJobs[controller.cron];
 
   if (!jobs || jobs.length === 0) {
-    console.warn(`No cron job registered for schedule "${controller.cron}"`);
+    console.error(
+      `No cron job registered for schedule "${controller.cron}". Known schedules: ${Object.keys(cronJobs).join(", ")}`,
+    );
     return;
   }
 
