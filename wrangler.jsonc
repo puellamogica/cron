@@ -6,7 +6,7 @@
   "workers_dev": false,
   "preview_urls": false,
   "triggers": {
-    "crons": [],
+    "crons": ["8/10 * * * *"],
   },
   "observability": {
     "traces": {
@@ -24,6 +24,10 @@
   },
   "placement": {
     "mode": "smart",
+  },
+  "vars": {
+    "OPENWEATHERMAP_LAT": "43.3302",
+    "OPENWEATHERMAP_LON": "145.5834",
   },
   "r2_buckets": [
     {

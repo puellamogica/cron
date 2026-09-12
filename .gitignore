@@ -158,5 +158,8 @@ vite.config.ts.timestamp-*
 ## logs
 pnpm-debug.log*
 
-# misc
+## misc
 .DS_Store
+
+# custom
+.commandcode
