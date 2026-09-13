@@ -2,7 +2,6 @@ const ONECALL_4_CURRENT_URL =
   "https://api.openweathermap.org/data/4.0/onecall/current";
 
 export interface WeatherCondition {
-  main: string;
   description: string;
   icon: string;
 }
@@ -76,8 +75,7 @@ function toCurrentWeather(record: RawCurrentWeatherRecord): CurrentWeather {
     ...current,
     ...(rain && rain["1h"] !== undefined ? { rain: rain["1h"] } : {}),
     ...(snow && snow["1h"] !== undefined ? { snow: snow["1h"] } : {}),
-    weather: weather.map(({ main, description, icon }) => ({
-      main,
+    weather: weather.map(({ description, icon }) => ({
       description,
       icon,
     })),
