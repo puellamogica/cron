@@ -1,3 +1,4 @@
+import { clearExpiredUnlocks } from "./unlock";
 import { syncWeather } from "./weather";
 
 export type CronJob = (
@@ -7,6 +8,7 @@ export type CronJob = (
 
 export const cronJobs: Record<string, CronJob[]> = {
   "8/10 * * * *": [syncWeather],
+  "56 * * * *": [clearExpiredUnlocks],
 };
 
 export async function runScheduled(

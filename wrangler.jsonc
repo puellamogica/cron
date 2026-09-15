@@ -6,7 +6,7 @@
   "workers_dev": false,
   "preview_urls": false,
   "triggers": {
-    "crons": ["8/10 * * * *"],
+    "crons": ["8/10 * * * *", "56 * * * *"],
   },
   "observability": {
     "traces": {
@@ -42,5 +42,11 @@
       "secret_name": "OPENWEATHERMAP_API_KEY",
     },
   ],
-  "d1_databases": [],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "blog",
+      "database_id": "11c0f682-7f38-41e4-87e0-3d15e549b020",
+    },
+  ],
 }
