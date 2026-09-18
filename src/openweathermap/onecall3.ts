@@ -1,3 +1,5 @@
+import { fetchOpenWeatherMap } from "./request";
+
 const ONECALL_3_URL = "https://api.openweathermap.org/data/3.0/onecall";
 
 const EXCLUDE_ALL_BUT_ALERTS = "current,minutely,hourly,daily";
@@ -50,15 +52,10 @@ export async function fetchAlerts(
   url.searchParams.set("lang", request.lang);
   url.searchParams.set("appid", request.apiKey);
 
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(
-      `OpenWeatherMap One Call 3.0 alerts failed with ${response.status}: ${await response.text()}`,
-    );
-  }
-
-  const body = await response.json<AlertsResponse>();
+  const body = await fetchOpenWeatherMap<AlertsResponse>(
+    url,
+    "OpenWeatherMap One Call 3.0 alerts",
+  );
 
   return (body.alerts ?? []).map(toWeatherAlert);
 }

@@ -1,3 +1,5 @@
+import { fetchOpenWeatherMap } from "./request";
+
 const ONECALL_4_CURRENT_URL =
   "https://api.openweathermap.org/data/4.0/onecall/current";
 
@@ -92,15 +94,10 @@ export async function fetchCurrentWeather(
   url.searchParams.set("lang", request.lang);
   url.searchParams.set("appid", request.apiKey);
 
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(
-      `OpenWeatherMap One Call 4.0 current weather failed with ${response.status}: ${await response.text()}`,
-    );
-  }
-
-  const body = await response.json<CurrentWeatherResponse>();
+  const body = await fetchOpenWeatherMap<CurrentWeatherResponse>(
+    url,
+    "OpenWeatherMap One Call 4.0 current weather",
+  );
   const [record] = body.data;
 
   if (!record) {
