@@ -24,7 +24,7 @@ interface AlertsResponse {
   alerts?: RawWeatherAlert[];
 }
 
-export interface AlertsRequest {
+interface AlertsRequest {
   lat: string;
   lon: string;
   units: string;

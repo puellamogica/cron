@@ -3,12 +3,12 @@ import { fetchOpenWeatherMap } from "./request";
 const ONECALL_4_CURRENT_URL =
   "https://api.openweathermap.org/data/4.0/onecall/current";
 
-export interface WeatherCondition {
+interface WeatherCondition {
   description: string;
   icon: string;
 }
 
-export interface CurrentWeather {
+interface CurrentWeather {
   dt: number;
   sunrise?: number;
   sunset?: number;
@@ -61,7 +61,7 @@ interface CurrentWeatherResponse {
   data: RawCurrentWeatherRecord[];
 }
 
-export interface CurrentWeatherRequest {
+interface CurrentWeatherRequest {
   lat: string;
   lon: string;
   units: string;

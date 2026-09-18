@@ -1,4 +1,4 @@
-export const REQUEST_TIMEOUT_MS = 10_000;
+const REQUEST_TIMEOUT_MS = 10_000;
 
 export async function fetchOpenWeatherMap<T>(
   url: URL,

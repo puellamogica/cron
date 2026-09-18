@@ -1,7 +1,7 @@
 import { clearExpiredUnlocks } from "./unlock";
 import { syncWeather } from "./weather";
 
-export type CronJob = (
+type CronJob = (
   env: CloudflareBindings,
   ctx: ExecutionContext,
 ) => Promise<void>;
