@@ -12,10 +12,10 @@
     "hono": "^4.13.8"
   },
   "devDependencies": {
-    "@cloudflare/vitest-plugin": "^1.1.12",
+    "@cloudflare/vitest-plugin": "^1.1.13",
     "@eslint/js": "^10.0.1",
-    "@types/node": "^24.13.5",
-    "eslint": "^10.10.0",
+    "@types/node": "^24.13.6",
+    "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.12.0",
     "husky": "^9.1.7",
@@ -24,7 +24,7 @@
     "prettier": "^3.9.8",
     "typescript-eslint": "^8.70.0",
     "vitest": "^4.1.11",
-    "wrangler": "^4.134.0"
+    "wrangler": "^4.135.0"
   },
   "lint-staged": {
     "*.{js,mjs,cjs,ts,mts,cts}": [
